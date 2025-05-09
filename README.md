@@ -1,24 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cursor Demo Todo App
 
-## Getting Started
+A full-stack Todo List app built with Next.js (App Router), TypeScript, Tailwind CSS, Drizzle ORM, and PostgreSQL. It features a modern UI, persistent todos, and CRUD operations via API routes.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Framework:** Next.js (App Router, TypeScript, Turbopack, Tailwind CSS, ESLint)
+- **Database:** PostgreSQL (localhost:5432)
+- **ORM:** Drizzle ORM
+- **UI:** React, shadcn/ui, Radix UI, Lucide React, Tailwind CSS
+- **Forms & Validation:** React Hook Form, Zod
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**
+2. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
+3. **Ensure PostgreSQL is running** on `localhost:5432` (default user: `postgres`, database: `cursor-demo`).
+   - You can change the connection string in `drizzle.config.ts` and API route files if needed.
+4. **Run database migrations** (if any):
+   ```bash
+   # Example (if using drizzle-kit):
+   pnpm drizzle-kit push:pg
+   ```
+5. **Start the development server:**
+   ```bash
+   pnpm dev
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage
+
+- Open [http://localhost:3000](http://localhost:3000) in your browser.
+- Add, toggle, and delete todos using the UI.
+- API Endpoints:
+  - `GET /api/todos` - List todos
+  - `POST /api/todos` - Add todo
+  - `POST /api/todos/[id]/toggle` - Toggle completion
+  - `DELETE /api/todos/[id]` - Delete todo
+  - `DELETE /api/todos?completed=true` - Delete all completed
 
 ## Learn More
 
